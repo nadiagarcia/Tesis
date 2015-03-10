@@ -26,13 +26,13 @@ public class CassandraConnector {
 	 */
 	public void connect(final String node, final int port) {
 		this.cluster = Cluster.builder().addContactPoint(node).withPort(port).build();
+		session = cluster.connect();
 		final Metadata metadata = cluster.getMetadata();
 		out.printf("Connected to cluster: %s\n", metadata.getClusterName());
 		for (final Host host : metadata.getAllHosts()) {
 			out.printf("Datacenter: %s; Host: %s; Rack: %s\n",
 					host.getDatacenter(), host.getAddress(), host.getRack());
 		}
-		session = cluster.connect();
 	}
 
 	/**

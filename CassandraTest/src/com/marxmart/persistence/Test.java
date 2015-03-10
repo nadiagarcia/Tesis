@@ -12,7 +12,7 @@ public class Test {
 	public static void main(final String[] args) {
 		final CassandraConnector client = new CassandraConnector();
 		final String ipAddress = "54.165.43.110";
-		final int port = 9042;
+		final int port = 9160;
 		System.out.println("Connecting to IP Address " + ipAddress + ":" + port
 				+ "...");
 		client.connect(ipAddress, port);
